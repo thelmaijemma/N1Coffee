@@ -1,0 +1,22 @@
+.info{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 400px;
+    min-height: 200px;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+.info ul{
+    list-style: none;
+    padding: 0;
+}
+
+.info li{
+padding: 5px 0;
+}
+    
