@@ -1,6 +1,34 @@
+.map{
 
-.map {
-    width: 45vw;
-    height: 45vh;
-    position: relative;
+}
+
+@media (min-width:770px){
+.map-split{
+    
+    width: 30%;
+}
+}
+
+@media (max-width:550px){
+.map-image{
+    width: 80%;
+    height: 85%;
+   
+}
+}
+
+@media (max-width:770px) and (min-width:550px){
+    .map-image{
+        width: 40%;
+        height: 65%;
+    }
+
+        .huge-tablet{
+            font-size: xx-large;
+        }
+    
+    }
+
+.search-l{
+    color: #7f8a99;
 }

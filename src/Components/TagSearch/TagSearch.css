@@ -6,13 +6,29 @@
 }
 
 @media (max-width:550px){
+  .tag-search-container{
+      margin-top: 5%;
+      width: 100%;
+    
+  }
+  }
+
+@media (max-width:770px) and (min-width:550px){
 .tag-search-container{
     margin-top: 5%;
+    width: 75%;
+  
 }
 }
 
+.tag-search-container{
+  min-width: 30%;
+}
+
+
 .tag-form{
-    
+    width: 60%;
+    margin: auto;
 }
 
 .updated-btn{
@@ -22,7 +38,9 @@
 .see-listings{
     margin-top: 1rem;
 }
-
+.added-tag{
+  
+}
 
 /*
 Listings

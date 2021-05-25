@@ -3,9 +3,10 @@ import './Map.css';
 import React from 'react';
 import LocationMarker from '../LocationMarker/LocationMarker';
 import QuickStore from '../../../QuickStore';
-import LocationInfo from '../LocationInfo/LocationInfo';
 
+// don't forget to add image alts
 const SHOPS = QuickStore;
+const KEY = "";
 const center = {
     lat: 51.53841,
     lng: -0.09872
@@ -13,37 +14,36 @@ const center = {
 const zoom = 13
 
 class Map extends React.Component{
-    constructor(props){
-        super(props)
 
-        this.state = { SHOPS }
-    }
-    
-    
+   
 
     render() {
-        console.log(SHOPS[0].name)
+
     return (
-        <div className="map">
-            <GoogleMapReact
-            bootstrapURLKeys={
-                {key: 'thekey'}
-            }
-            defaultCenter= { center }
-            defaultZoom= { zoom }
-            >
-                <LocationMarker lat={ center.lat} lng={center.lng}
-                onClick={() => setInfo()}
-                />
-            </GoogleMapReact>
-            <LocationInfo></LocationInfo>
-           {SHOPS[0].name}
+   
+<div className="card mb-3 half-width-desktop full-width-mobile map-split">
+    <h3 className="card-header left-align"> Wellness Near Me <i className="fas fa-location-arrow"></i></h3> 
+    <div className="card-body">
+       
+ <img src="logo\WellFindLogos\welcome logo.png" alt="a map with the WellFind logo, trees, and water droplet brand markers" className="map-image"/>
+          <p className="large">
+            <a href="#TagSearch" className="card-link search-l huge-tablet tablet">Search Listings <i className="fas fa-arrow-circle-down"></i></a>
+            </p>
+        </div>
         </div>
     )
 }
 }
 
-{/*Map.defaultProps = {
+{/*
+     constructor(props){
+        super(props)
+
+        this.state = { SHOPS }
+    }
+    under render:
+          console.log(SHOPS[0].name)
+    Map.defaultProps = {
     center: {
         lat: 51.53841,
         lng: -0.09872

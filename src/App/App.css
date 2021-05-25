@@ -1,6 +1,63 @@
-body{
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+a{
+    text-decoration: none;
+}
+body { padding-top: 70px; }
+
+.card{
+    text-align: center;
+}
+.left-align{
+    text-align: start;
+}
+.white{
+    color: white;
+}
+.small{
+    font-size: small;
+}
+.large{
+    font-size: x-large;
+}
+.super-large{
+    font-size: xx-large;
+}
+img{
+    margin: auto;
+    margin-top: 2%;
 }
 
+/*
+Page Partitions
+*/
+.flex-container-split-map{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-block: 3%;
+}
+@media (min-width:550px){
+    .mobile{
+        display: none;
+    }
+    .half-width-desktop{
+  
+    }
+}
 
+@media (min-width:780px){
+    .tablet{
+        display: none;
+    }
+    .half-width-desktop{
+  
+    }
+}
+
+@media (max-width:550px){
+    .screen{
+        display: none;
+    }
+    .full-width-mobile{
+        width: 100%;
+    }
+}
