@@ -1,0 +1,81 @@
+.featured-swing{
+    margin-bottom: 0.6rem;
+}
+.tag-swing{
+    margin-top: 1rem;
+}
+
+@media (max-width:550px){
+.tag-search-container{
+    margin-top: 5%;
+}
+}
+
+.tag-form{
+    
+}
+
+.updated-btn{
+    margin: 0.6rem;
+}
+
+.see-listings{
+    margin-top: 1rem;
+}
+
+
+/*
+Listings
+ ---- grid ---- */
+
+    .listings{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 5%;
+        margin-inline: 2rem;
+    }
+
+ .listing{
+    margin-right: 0.3rem;
+    max-width: 20rem;
+}
+
+.listing-logo{
+ max-height: 2rem;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.see-listing-btn{
+  max-height: 2rem;
+}
+
+/*
+Modal
+*/
+.add-tags-form{
+  width: 50%;
+  margin: auto;
+}
+.submit-modal{
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.modal-title img{
+  max-height: 3rem;
+}
+

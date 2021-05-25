@@ -1,0 +1,17 @@
+/*
+About
+*/
+
+.about{
+    max-width: 60%;
+    margin: auto;
+}
+.about-line{
+    margin-block: 2rem;
+}
+.about-img{
+    max-width: 6rem;
+}
+.description{
+    margin-block: 2rem;
+}
