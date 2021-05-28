@@ -155,7 +155,7 @@ const listings = this.state.listings
         <div className="flex-container-split-map">
           <Map />
           <div className="card bg-secondary mb-3 tag-search-container" id="TagSearch">
-            <div className="card-header"><h2><img src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/Logo%20Transparent%20Dark.png" className="logo" alt="WellFind Icon With Transparent Background" />WellFinder</h2></div>
+            <div className="card-header"><h2><i className="fas logo fa-location-arrow"></i> WellFinder</h2></div>
             <div className="card-body">
               <h5 className="card-title large">Find Wellness Using:</h5>
               <h5 className="large">Whatever Hashtag You Need...</h5>
@@ -186,7 +186,7 @@ const listings = this.state.listings
           {this.state.listings ? listings.map((listing, index) =>
             <div key={index}>
               <div className="card listing bg-light mb-3">
-                <div className="card-header"><button type="button" className="btn shadow-none btn-primary bg-light btn-sm" data-bs-toggle="modal" data-bs-target={"#"+this.state.ring[index]}><img src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/welcome%20logo.png" className="listing-logo"/>See Listing | <span className="large">Map</span></button></div>
+                <div className="card-header"><button type="button" className="btn shadow-none btn-primary bg-light btn-sm" data-bs-toggle="modal" data-bs-target={"#"+this.state.ring[index]}><img src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/Logo%20Transparent%20Dark.png"/>See Listing | <span className="large">Map</span></button></div>
                 <div className="card-body">
                   <h4 className="card-title">{listing.listing_name}</h4>
                   <p className="card-text">Nearby: {listing.areas}</p>
