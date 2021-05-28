@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Special+Elite&display=swap');
+
+.space-font{
+  font-family: 'Montserrat Alternates', sans-serif;
+  /*
+  font-family: 'Monoton', cursive;
+*/
+}
+
+.logo-1{
+  height: 5rem;
+  width: 6rem;
+}
+
+.square{
+  border-radius: 0;
+}
+
+.padmore{
+  padding-top: 2rem;
+}
+
 .featured-swing{
     margin-bottom: 0.6rem;
 }
@@ -22,12 +44,13 @@
 }
 
 .tag-search-container{
-  min-width: 30%;
+  min-width: 40%;
+  padding-inline: 5%;
 }
 
 
 .tag-form{
-    width: 60%;
+    width: 65%;
     margin: auto;
 }
 
@@ -42,9 +65,15 @@
   
 }
 
+
+
 /*
 Listings
  ---- grid ---- */
+
+ .tag-light{
+   background-color: rgb(231, 230, 230);
+ }
 
     .listings{
         display: flex;
@@ -60,7 +89,7 @@ Listings
 }
 
 .listing-logo{
- max-height: 2rem;
+ height: 2rem;
 }
 
 .grid {
@@ -97,3 +126,6 @@ Modal
   max-height: 3rem;
 }
 
+.bg-success{
+  margin-top: 2rem;
+}

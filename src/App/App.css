@@ -1,7 +1,11 @@
 a{
     text-decoration: none;
 }
-body { padding-top: 70px; }
+body { 
+    padding-top: 70px; 
+    
+
+}
 
 .card{
     text-align: center;

@@ -32,7 +32,9 @@ class TagSearch extends React.Component {
       tagArray: '',
       submittedTags: '',
       tagsId: '',
-      tags: ''
+      tags: '',
+      hadTags: '',
+      success: ''
 
     }
 
@@ -77,7 +79,6 @@ class TagSearch extends React.Component {
 
 
 
-
   componentDidUpdate() {
 
 
@@ -94,6 +95,7 @@ class TagSearch extends React.Component {
             UpdateMap: 0,
             listings: res.data,
             results: "try"
+            
           });
         })
         }
@@ -112,11 +114,19 @@ class TagSearch extends React.Component {
         UpdateMap: 2
       })
     }
+
+   
   }
 
 handleAddTag(e, id, tags){
 
   e.preventDefault();
+
+  this.setState({
+    hadTags: id,
+    success: 'yes'
+
+  })
  
     console.log(id+tags+this.state.submittedTags)
 const newTags = tags.concat(", "+ this.state.submittedTags)
@@ -136,6 +146,7 @@ const data = {
     }) 
     .then(res => res.json())
     .then(res => console.log(res))
+
   }
 
 
@@ -152,32 +163,32 @@ const listings = this.state.listings
  
     return (
       <>
-        <div className="flex-container-split-map">
-          <Map />
-          <div className="card bg-secondary mb-3 tag-search-container" id="TagSearch">
-            <div className="card-header"><h2><i className="fas logo fa-location-arrow"></i> WellFinder</h2></div>
-            <div className="card-body">
-              <h5 className="card-title large">Find Wellness Using:</h5>
-              <h5 className="large">Whatever Hashtag You Need...</h5>
-              <p className="card-text small"> (you can also search by neighbourhood)</p>
-              <h5 className="card-title ">Featured Tags</h5>
-              <div className="featured-swing">
-                <button type="button" className="btn btn-primary btn-sm" onClick={(e) => this.handleChange("Zero-Waste")}>Zero-Waste</button>
-                <button type="button" className="btn btn-primary btn-sm" onClick={(e) => this.handleChange("Organic-100%")}>Organic-100%</button>
-                <button type="button" className="btn btn-primary btn-sm" onClick={(e) => this.handleChange("Keto")}>Keto</button>
+        <div className="flex-container-split-map padmore">
+          <div className="card bg-light mb-3  tag-search-container" id="TagSearch">
+                <div className="card-body">
+                <h3 className="medium padmore">Find LDN Wellness Using:<b> Whatever Tag You Need... </b></h3>
+              <p className="card-text small"> <i>(you can also search by neighbourhood)</i></p>
+          
+                        <div className="featured-swing">
+                    <button type="button" className="btn btn-outline-primary disabled  shadow-none btn-sm">Suggested</button>
+                <button type="button" className="btn btn-primary shadow-none btn-sm" onClick={(e) => this.handleChange("Zero-Waste")}>Zero-Waste</button>
+                <button type="button" className="btn btn-primary shadow-none btn-sm" onClick={(e) => this.handleChange("Organic-100%")}>Organic-100%</button>
+                <button type="button" className="btn btn-primary  shadow-none btn-sm" onClick={(e) => this.handleChange("Keto")}>Keto</button>
+              
               </div>
 
               <form className="d-flex tag-form">
                 <input className="form-control me-sm-2" type="text" placeholder={this.state.placeholder} onChange={(e) => this.handleChange(e.target.value)} />
                 <div>
-                  <button className="btn btn-secondary  bg-secondary" type="submit" onClick={(e) => this.handleSearch(e)}>Find </button>
+                  <button className="btn btn-outline-primary square " type="submit" onClick={(e) => this.handleSearch(e)}>Find </button>
                 </div>
               </form>
+              
               <div className="tag-swing">
-                <button type="button" className="btn shadow-none btn-primary  bg-light added-tag">Selected: {this.state.TagSearch}</button>
+                <button type="button" className="btn  btn-primary   added-tag">Selected Tag: {this.state.TagSearch}</button>
                 {this.state.listings ? <button type="button" className="btn updated-btn shadow-none btn-primary btn-sm btn-outline-success added-tag">Found It!</button> : this.state.results ? <button type="button" className="btn updated-btn shadow-none btn-primary btn-sm added-tag">No results</button> : <p></p>}
               </div>
-              {this.state.listings ? <button type="button"  className="btn btn-primary bg-light disabled see-listings">Listings Loaded <i class="fas fa-check-circle"></i></button> : <p></p>}
+              {this.state.listings ? <button type="button"  className="btn btn-secondary disabled see-listings">Listings Loaded <i class="fas fa-check-circle"></i></button> : <p></p>}
             </div>
           </div>
           {/* END FLEX */}
@@ -186,12 +197,12 @@ const listings = this.state.listings
           {this.state.listings ? listings.map((listing, index) =>
             <div key={index}>
               <div className="card listing bg-light mb-3">
-                <div className="card-header"><button type="button" className="btn shadow-none btn-primary bg-light btn-sm" data-bs-toggle="modal" data-bs-target={"#"+this.state.ring[index]}><img src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/Logo%20Transparent%20Dark.png"/>See Listing | <span className="large">Map</span></button></div>
+                <div className="card-header"><button type="button" className="btn btn-secondary medium btn-sm" data-bs-toggle="modal" data-bs-target={"#"+this.state.ring[index]}><img className="listing-logo" src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/WF%20Transparent%20Dark.png" />See Listing | Map</button></div>
                 <div className="card-body">
                   <h4 className="card-title">{listing.listing_name}</h4>
                   <p className="card-text">Nearby: {listing.areas}</p>
                   
-                  <span className="rounded-pill bg-secondary">{listing.tags}</span>
+                  <span className="tag-light">{listing.tags}</span>
    
                 </div>
                 <div className="modal" id={this.state.ring[index]}>
@@ -208,13 +219,14 @@ const listings = this.state.listings
 <LittleMap lat={listing.lat} lng={listing.lng} address={listing.address} />
                         <p className="card-text large"></p>
                       </div>
-                      <span className="rounded-pill large bg-secondary">{listing.tags}</span>
+                      <span className="tag-light large">{listing.tags}</span>
                       <div className="add-tags-form">
-                        <form onSubmit={(e) =>this.handleAddTag(e, listing.business_id, listing.tags)}>
-                          <label htmlFor="tags" className="form-label">Add A Tag To This Listing</label>
+                        <form id={this.state.ring[index]+"2"} onSubmit={(e) =>this.handleAddTag(e, listing.business_id, listing.tags)}>
+                          <label htmlFor="tags" className="form-label padmore">Add A Tag To This Listing</label>
                           <input type="text" value={this.state.submittedTags} onChange={(e)=>this.setState({submittedTags:e.target.value})} className="form-control" id="tags"/>
-                          <button type="submit" className="btn bg-info btn-sm submit-modal" >Submit</button>
+                          <button type="submit" className="btn bg-info btn-sm submit-modal">Submit</button>
                         </form>
+                        { this.state.hadTags === listing.business_id && this.state.success ? <span class="badge bg-success">Success</span> : <p></p>}
                       </div>
                       <div className="modal-footer">
                            </div>
