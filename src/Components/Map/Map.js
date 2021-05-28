@@ -27,7 +27,7 @@ class Map extends React.Component{
        
  <img src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/welcome%20logo.png" alt="a map with the WellFind logo, trees, and water droplet brand markers" className="map-image"/>
           <p className="large">
-            <a href="#TagSearch" className="card-link search-l huge-tablet tablet"> start <i className="fas fa-arrow-circle-down"></i></a>
+            <a href="#TagSearch" className="card-link search-l huge-tablet tablet"> start search <i class="far fa-dot-circle"></i></a>
             </p>
         </div>
         </div>
