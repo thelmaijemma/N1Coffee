@@ -198,7 +198,7 @@ const listings = this.state.listings
                   <div className="modal-dialog" role="document">
                     <div className="modal-content bg-light">
                       <div className="modal-header">
-                        <h5 className="modal-title super-large"><img src="./logo/WellFindLogos/WFTransparentDark.png" className="listing-logo" /> {listing.listing_name}</h5>
+                        <h5 className="modal-title super-large"><img src="../../logo/WellFindLogos/WFTransparentDark.png" className="listing-logo" /> {listing.listing_name}</h5>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true"></span>
                         </button>
