@@ -47,7 +47,7 @@ const data = {
   render(){
     return (
 <div className="add-listing" id="addlisting">
-  <h4 className="card-title"><img className="add-listing-logo" src="logo\WellFindLogos\WF Transparent Dark.png" />Add A Listing</h4>
+  <h4 className="card-title"><img className="add-listing-logo" src="..\logo\WellFindLogos\WF Transparent Dark.png" />Add A Listing</h4>
 <form  onSubmit={(e) =>this.handleAddListing(e)}>
   <div className="mb-3">
     <label htmlFor="listinginput" className="form-label">Listing Name</label>
