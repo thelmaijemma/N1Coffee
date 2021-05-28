@@ -18,20 +18,20 @@ const Nav = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">About</a>
+                <a className="nav-link" href="#about">About</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Add A Listing</a>
+                <a className="nav-link" href="#addlisting">Add A Listing</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Contact</a>
+                <a className="nav-link" href="#contact">Contact</a>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
                 <div className="dropdown-menu">
-                  <a className="dropdown-item" href="#" target="_blank">FindAppCo Ecosystem <i className="fas fa-external-link-alt"></i></a>
+                  <a className="dropdown-item" href="https://findappco.github.io/API/" target="_blank">FindAppCo Ecosystem <i className="fas fa-external-link-alt"></i></a>
                   <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" href="#" target="_blank">Developers: Visit Our API <i className="fas fa-external-link-alt"></i></a>
+                  <a className="dropdown-item" href="https://findappco.github.io/API/" target="_blank">Developers: Visit Our API <i className="fas fa-external-link-alt"></i></a>
                 </div>
               </li>
             </ul>

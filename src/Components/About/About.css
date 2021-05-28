@@ -6,6 +6,14 @@ About
     max-width: 60%;
     margin: auto;
 }
+
+@media (min-width:780px){
+
+    .about{
+        max-width: 40%;
+    }
+    
+}
 .about-line{
     margin-block: 2rem;
 }

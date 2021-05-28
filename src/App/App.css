@@ -15,6 +15,9 @@ body { padding-top: 70px; }
 .small{
     font-size: small;
 }
+.medium{
+    font-size: medium;
+}
 .large{
     font-size: x-large;
 }

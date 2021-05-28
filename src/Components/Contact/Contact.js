@@ -4,7 +4,7 @@ import './Contact.css';
 const Contact = () => {
     return (
 
-        <div className="card">
+        <div className="card" id="contact">
 <div className="card-body">
   <h4 className="card-title super-large">Contact Us</h4>
   <h6 className="card-subtitle mb-2 text-muted contact-subline large">We're Listening.</h6>

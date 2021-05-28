@@ -1,19 +1,62 @@
 import React from 'react';
 import './AddListing.css';
 
-const AddListing = () => {
+class AddListing extends React.Component {
+  constructor(props) {
+    super(props)
+    this.handleAddListing = this.handleAddListing.bind(this);
+    this.state = {
+      name: '',
+      place: '',
+      tags: '',
+      success: ''
+
+    }
+
+  }
+
+  handleAddListing(e){
+    e.preventDefault();
+    console.log(this.state.name, this.state.place, this.state.tags)
+
+const data = {
+  name: this.state.name,
+  address: this.state.place,
+        tags: this.state.tags
+}
+   fetch('https://wellfindapi.herokuapp.com/api/listings/submit.php',
+    {
+      method: 'POST',
+      headers: {
+      'Access-Control-Allow-Headers' : '*',
+      'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    }) 
+    .then(res => res.json())
+    .then(res => {
+      console.log(res)
+    })
+    this.setState({
+      success: 'yes'
+    })
+   
+  }
+
+
+  render(){
     return (
-<div className="add-listing">
-  <h4 className="card-title"><img class="add-listing-logo" src="logo\WellFindLogos\WF Transparent Dark.png" />Add A Listing</h4>
-<form>
+<div className="add-listing" id="addlisting">
+  <h4 className="card-title"><img className="add-listing-logo" src="logo\WellFindLogos\WF Transparent Dark.png" />Add A Listing</h4>
+<form  onSubmit={(e) =>this.handleAddListing(e)}>
   <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Listing Name</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" placeholder="listing name - location(if multiple)" />
+    <label htmlFor="listinginput" className="form-label">Listing Name</label>
+    <input type="text" className="form-control" id="listinginput" placeholder="listing name - branch location(option)" value={this.state.name} onChange={(e)=>this.setState({name:e.target.value})} />
   </div>
   <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Google Plus ID</label>
-    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="GH75385 London"/>
-    <div id="emailHelp" className="form-text" ><button type="button" className="btn shadow-none btn-primary text-muted btn-sm" data-bs-toggle="modal" data-bs-target="#google-modal">How Can I Find This</button></div>
+    <label htmlFor="address" className="form-label">Address (or Google Plus Code)</label>
+    <input type="text" className="form-control" id="address" placeholder="14 Street London, N12 456" value={this.state.place} onChange={(e)=>this.setState({place:e.target.value})}/>
+    <div id="emailHelp" className="form-text" ><button type="button" className="btn shadow-none btn-primary text-muted btn-sm" data-bs-toggle="modal" data-bs-target="#google-modal">Google Plus Code: How Can I Find This? <i className="fas fa-external-link-alt"></i></button></div>
      </div>
      <div className="modal" id="google-modal">
       <div className="modal-dialog" role="document">
@@ -27,21 +70,22 @@ const AddListing = () => {
     </div>
     </div>
   <div className="form-group">
-    <label for="exampleTextarea" className="form-label mt-4">Comma Separated Tags (min. 3, see suggestions)</label>
+    <label htmlFor="tagtextarea" className="form-label mt-4">Comma Separated Tags (min. 3, see suggestions)</label>
    <div className="suggested-tags-swing">
-    <span className="badge rounded-pill bg-secondary">Secondary</span>
-    <span className="badge rounded-pill bg-secondary">Secondary</span>
-    <span className="badge rounded-pill bg-secondary">Secondary</span>
-    <span className="badge rounded-pill bg-secondary">Secondary</span>
+    <span className="badge rounded-pill bg-secondary">Refill-Detergent</span>
+    <span className="badge rounded-pill bg-secondary">Refill-Food</span>
+    <span className="badge rounded-pill bg-secondary">Organic-Beauty</span>
     </div>
-    <textarea className="form-control suggested-tags" id="exampleTextarea" rows="3" placeholder="zero-waste, organic, therapy"></textarea>
+    <textarea className="form-control suggested-tags" id="tagtextarea" rows="2" placeholder="zero-waste, organic, therapy" value={this.state.tags} onChange={(e)=>this.setState({tags:e.target.value})}></textarea>
   </div>
   <div className="tags-submit">
   <button type="submit" className="btn btn-primary btn-sm">Submit</button>
+    {this.state.success ? <button type="button" class="btn btn-primary disabled btn-sm green"> Listing Under Review, Thanks! </button> : <p></p>}
     </div>
 </form>
 </div>
 )
+    }
 }
 
 export default AddListing

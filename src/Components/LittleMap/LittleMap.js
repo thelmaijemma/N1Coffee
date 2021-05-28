@@ -1,110 +1,57 @@
-import GoogleMapReact from 'google-map-react';
 import './LittleMap.css';
 import React from 'react';
-import LocationMarker from '../LocationMarker/LocationMarker';
-import QuickStore from '../../../QuickStore';
+import mapboxgl from '!mapbox-gl';
 
 
-const SHOPS = QuickStore;
-const center = {
-    lat: 51.53841,
-    lng: -0.09872
-}
-const zoom = 13
 
-class Map extends React.Component{
+class LittleMap extends React.Component{
    
     constructor(props) {
         super(props)
          this.state={
-           placeIds: [],
-           positionArray: []
+      lat: parseFloat(this.props.lat),
+      lng: parseFloat(this.props.lng),
+      zoom: 14
       }
+      this.mapContainer = React.createRef();
     }
 
-    handleGoogle(){
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        let placeRequest = this.state.placeIds.map((id, index) =>{
-        let url = proxyurl.concat("https://maps.googleapis.com/maps/api/place/details/json?"+KEY+"&"+id);
+
+    componentDidMount() {
+        const { lng, lat, zoom } = this.state;
+        const map = new mapboxgl.Map({
+        container: this.mapContainer.current,
+        style: 'mapbox://styles/thelmaijemma/ckp66zlbj0uj718pe7oafzihj',
+        center: [lng, lat],
+        zoom: zoom
+        });
+        let marker = new mapboxgl.Marker({
+            className: 'marker', color: '#06041f', 
+            width:  '5px',
+            height: '5px',})
+            .setLngLat([lng, lat])
+            .setPopup(new mapboxgl.Popup({closeOnClick: false, closeButton: false}).setHTML("<h4>"+this.props.address+"</h4>")) // add popup
+            .addTo(map);
+            map.addControl(new mapboxgl.NavigationControl());
+        }
         
-        fetch(url)
-          .then(res => res.json())
-          .then(res => {
-            console.log(res.data)
-          }) 
-        }) 
-    }
-    
 
- componentDidUpdate(){
-
-     if(this.props.mapTag){
-
-    let lowerCaseTag = this.props.mapTag.toLowerCase();
-    let search = "https://wellfindapi.herokuapp.com/api/listings/search_match.php?search=".concat("%",lowerCaseTag,"%");
-    
-
-    fetch(search)
-    .then(res => res.json())
-    .then(res => {
-      let results = res.data;
-      results.map((listing, index) => (
-          this.state.placeIds.push(listing.google_id)
-      ));
-      console.log(this.state.placeIds)
-      // this.handleGoogle();
-      })
-
-     
-    
-     
-       
-      
-
-    
-    }
-
-
-     }
- 
-    
 
     render() {
-  
     return (
-        <div className="map">
-<div className="card mb-3 half-width-desktop full-width-mobile map-split">
-    <h3 className="card-header left-align">Near Me <i className="fas fa-location-arrow"></i></h3>
-  
+        <div className="little-map">
+<div className="card mb-3 half-width-desktop full-width-mobile little-map-split">
+    <h3 className="card-header left-align">Find Me <i className="fas fa-location-arrow"></i> <p className="text-muted medium">{this.props.address}</p></h3>
+    <div className="map" >
+    <div ref={this.mapContainer} className="map-container" />
 
 
-    
-    <div className="map" style={{ height: '40vh', width: '60vh' }}>
-    <GoogleMapReact
-            bootstrapURLKeys={
-                {key: 'AIzaSyDDgDK67FW5YTaOvXb-fF-4ca5JGvPkMSA'}
-            }
-            defaultCenter= { center }
-            defaultZoom= { zoom }
-            >
-                <LocationMarker lat={ center.lat} lng={center.lng}
-                onClick={() => setInfo()}
-                />
-            </GoogleMapReact>
         </div>
-
- 
     <div className="card-body">
-          <p><a href="#" className="card-link"><i className="fas fa-retweet"></i></a>
-          <a href="#" className="card-link screen">See Listings <i className="fas fa-arrow-circle-down"></i></a>
-          <a href="#" className="card-link mobile">Search Listings <i className="fas fa-arrow-circle-down"></i></a>
+          <p>
             </p>
         </div>
   </div>
-            
-            
-
-
         </div>
     )
 }
@@ -126,4 +73,4 @@ class Map extends React.Component{
     zoom: 13
 } */}
 
-export default Map
+export default LittleMap

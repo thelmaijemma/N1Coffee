@@ -1,3 +1,15 @@
-.map-split{
+.little-map-split{
     max-height: 40rem;
 }
+
+.map-container {
+    height: 270px;
+    }
+
+    .marker {
+        display: block;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+        }
