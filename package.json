@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "serve": "webpack serve --mode development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -16,7 +18,7 @@
   "bugs": {
     "url": ""
   },
-  "homepage": "",
+  "homepage": "https://findappco.github.io/WellFind/",
   "dependencies": {
     "@iconify/icons-mdi": "^1.1.13",
     "@iconify/react": "^1.1.4",
@@ -31,6 +33,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.0",
     "mapbox-gl": "^2.2.0",
     "react-bootstrap": "^1.6.0",
     "source-map-loader": "^1.1.3",
