@@ -60,10 +60,13 @@ class TagSearch extends React.Component {
 
   handleChange(entry) {
     this.setState({
-      TagSearch: entry,
-      placeholder: entry
+      placeholder: entry,
+      TagSearch: entry
     })
+
   }
+
+
 
   handleSearch(e) {
     e.preventDefault();
@@ -100,11 +103,10 @@ class TagSearch extends React.Component {
         })
         }
 
-       
-         
         
+  
+       
       
-    
 
     if (this.state.UpdateMap === 0) {
 
@@ -114,6 +116,8 @@ class TagSearch extends React.Component {
         UpdateMap: 2
       })
     }
+
+
 
    
   }
@@ -178,7 +182,7 @@ const listings = this.state.listings
               </div>
 
               <form className="d-flex tag-form">
-                <input className="form-control me-sm-2" type="text" placeholder={this.state.placeholder} onChange={(e) => this.handleChange(e.target.value)} />
+                <input className="form-control me-sm-2" type="text" placeholder={this.state.TagSearch} onChange={(e) => this.handleChange(e.target.value)} />
                 <div>
                   <button className="btn btn-outline-primary square " type="submit" onClick={(e) => this.handleSearch(e)}>Find </button>
                 </div>
