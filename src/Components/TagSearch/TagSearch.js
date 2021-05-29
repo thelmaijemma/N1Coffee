@@ -197,7 +197,7 @@ const listings = this.state.listings
           {this.state.listings ? listings.map((listing, index) =>
             <div key={index}>
               <div className="card listing bg-light mb-3">
-                <div className="card-header"><button type="button" className="btn btn-secondary medium btn-sm" data-bs-toggle="modal" data-bs-target={"#"+this.state.ring[index]}><img className="listing-logo" src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/WF%20Transparent%20Dark.png" />See Listing | Map</button></div>
+                <div className="card-header"><button type="button" className="btn btn-secondary medium btn-sm" data-bs-toggle="modal" data-bs-target={"#"+this.state.ring[index]}><img className="listing-logo" src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/WFTransparentDark.png" />See Listing | Map</button></div>
                 <div className="card-body">
                   <h4 className="card-title">{listing.listing_name}</h4>
                   <p className="card-text">Nearby: {listing.areas}</p>
