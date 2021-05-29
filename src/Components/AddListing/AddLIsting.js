@@ -47,11 +47,11 @@ const data = {
   render(){
     return (
 <div className="add-listing" id="addlisting">
-  <h4 className="card-title"><img className="add-listing-logo" src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/WF%20Transparent%20Dark.png" />Add A Listing</h4>
+  <h4 className="card-title"><img className="add-listing-logo" src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/WFTransparentDark.png" />Add A Listing</h4>
 <form  onSubmit={(e) =>this.handleAddListing(e)}>
   <div className="mb-3">
     <label htmlFor="listinginput" className="form-label">Listing Name</label>
-    <input type="text" className="form-control" id="listinginput" placeholder="listing name - branch location(option)" value={this.state.name} onChange={(e)=>this.setState({name:e.target.value})} />
+    <input type="text" className="form-control" id="listinginput" placeholder="listing name - branch location(optional)" value={this.state.name} onChange={(e)=>this.setState({name:e.target.value})} />
   </div>
   <div className="mb-3">
     <label htmlFor="address" className="form-label">Address (or Google Plus Code)</label>
