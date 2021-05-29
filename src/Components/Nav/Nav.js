@@ -5,7 +5,7 @@ const Nav = () => {
     return (
         <nav className="navbar navbar-expand-lg medium navbar-light bg-light navbar-fixed-top">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/"><img src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/WellFind%20Transparent%20Cropped.png" className="logo" alt="WellFind Icon With Transparent Background"/></a>
+          <a className="navbar-brand" href="/Wellfind"><img src="https://raw.githubusercontent.com/thelmaijemma/WellFind/master/src/logo/WellFindLogos/WellFind%20Transparent%20Cropped.png" className="logo" alt="WellFind Icon With Transparent Background"/></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

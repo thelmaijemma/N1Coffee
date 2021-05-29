@@ -72,7 +72,8 @@ class TagSearch extends React.Component {
     e.preventDefault();
     this.setState({
       UpdateMap: 1,
-      ListingReady: "yes"
+      ListingReady: "yes",
+      placeholder: this.state.TagSearch
     })
 
  //   this.forceUpdate();
