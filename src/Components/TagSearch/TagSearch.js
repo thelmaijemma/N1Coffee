@@ -87,7 +87,7 @@ class TagSearch extends React.Component {
 
 
     if (this.state.UpdateMap === 1) {
-      let lowerCaseTag = this.state.TagSearch.toLowerCase();
+      let lowerCaseTag = this.state.TagSearch.toLowerCase().trim();
       let search = "https://wellfindapi.herokuapp.com/api/listings/search_match.php?search=".concat("%", lowerCaseTag, "%");
       console.log(search);
 
