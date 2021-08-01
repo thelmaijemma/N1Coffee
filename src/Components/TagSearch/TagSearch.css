@@ -27,6 +27,10 @@
     margin-top: 1rem;
 }
 
+.details{
+  background-color: yellow;
+}
+
 @media (max-width:550px){
   .tag-search-container{
       margin-top: 5%;
