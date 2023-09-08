@@ -55,7 +55,7 @@ const data = {
   </div>
   <div className="mb-3">
     <label htmlFor="address" className="form-label">Address (or Google Plus Code)</label>
-    <input type="text" className="form-control" id="address" placeholder="14 Street London, N12 456" value={this.state.place} onChange={(e)=>this.setState({place:e.target.value})}/>
+    <input type="text" className="form-control" id="address" placeholder="Bahnhofpl. 2, 80335 Muenchen" value={this.state.place} onChange={(e)=>this.setState({place:e.target.value})}/>
     <div id="emailHelp" className="form-text" ><button type="button" className="btn shadow-none btn-primary text-muted btn-sm" data-bs-toggle="modal" data-bs-target="#google-modal">Google Plus Code: How Can I Find This? <i className="fas fa-external-link-alt"></i></button></div>
      </div>
      <div className="modal" id="google-modal">

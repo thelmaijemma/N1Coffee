@@ -171,7 +171,7 @@ const listings = this.state.listings
         <div className="flex-container-split-map padmore">
           <div className="card bg-light mb-3  tag-search-container" id="TagSearch">
                 <div className="card-body">
-                <h3 className="medium padmore">Find LDN Wellness Using:<b> Whatever Tag You Need... </b></h3>
+                <h3 className="medium padmore">Find Munich Wellness Using:<b> Whatever Tag You Need... </b></h3>
               <p className="card-text small"> <i>(you can also search by neighbourhood)</i></p>
           
                         <div className="featured-swing">
